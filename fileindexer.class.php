@@ -131,6 +131,28 @@ class FileIndexer {
 		}
 	}
 
+	/**
+	* Loop through array to display each part of $_requestUri with link
+	*/
+	public function renderBreadcrumb() {
+		$breadcrumb = $this->_path["project"];
+		$requestUri_array = explode("/", "C:" . $this->_requestUri);
+
+		if ($this->_requestUri == "/") {
+			?><a href="<?php echo $breadcrumb; ?>" class="btn">C:</a><?php
+		}
+		else {
+			foreach ($requestUri_array as $index => $path) {
+				$breadcrumb .= ($breadcrumb == "") ? $path : "/" . $path;
+				$breadcrumb = str_replace("/C:", "", $breadcrumb);
+
+				?><a href="<?php echo $breadcrumb; ?>" class="btn">
+					<?php echo str_replace("%20", " ", $path); ?>
+				</a><?php
+			}
+		}
+	}
+
 }
 
 $FileIndexer = new FileIndexer();
