@@ -32,6 +32,7 @@
 				<!-- Header -->
 				<header class="row sidebar-header">
 					<span class="title">File_Indexer</span>
+					<i class="pull-right fa fa-bars"></i>
 				</header>
 
 				<!-- Tree -->
@@ -50,7 +51,38 @@
 						</ul>
 					</li>
 				</ul>
+			</aside>
 
+
+			<!-- TOOLBAR -->
+			<aside class="col-md-3 col-md-push-9 toolbar">
+
+				<!-- Header -->
+				<header class="row toolbar-header">
+					<span class="title">Toolbar</span>
+					<i class="pull-right fa fa-times"></i>
+				</header>
+
+				<!-- Section -->
+				<section class="row toolbar-section">
+					<div class="col-xs-12 search">
+						<form>
+							<input type="text" class="form-control" placeholder="Searching for...">
+						</form>
+					</div>
+					<div class="col-xs-12 theme">
+						<h2 class="title">Theme</h2>
+						<div class="colors">
+							<div data-color-light="#00cccc" data-color-dark="#009999"></div>
+							<div data-color-light="#0086b3" data-color-dark="#007399"></div>
+							<div data-color-light="#7575a3" data-color-dark="#666699"></div>
+							<div data-color-light="#cc0099" data-color-dark="#630086"></div>
+							<div data-color-light="#e6004c" data-color-dark="#cc0044"></div>
+							<div data-color-light="#ff471a" data-color-dark="#ff3300"></div>
+							<div data-color-light="#fff0b3" data-color-dark="#ffeb99"></div>
+						</div>
+					</div>
+				</section>
 			</aside>
 
 

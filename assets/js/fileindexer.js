@@ -85,4 +85,24 @@
 			$(this).css("overflow-y", "hidden");
 	};
 
+	/**
+	* Get sidebar width
+	* Position toolbar next to sidebar
+	* Handle toggle
+	*/
+	$.toggleBars = function() {
+		var sidebar_width = $(".sidebar")[0].clientWidth;
+
+		// put toolbar next to sidebar to be hidden
+		$(".toolbar").css("margin-left", sidebar_width + "px");
+
+		// handle toggle
+		$(".sidebar .sidebar-header .fa-bars").on("click", function() {
+			$(".toolbar").show().animate({ marginLeft: "0px" });
+		});
+		$(".toolbar .toolbar-header .fa-times").on("click", function() {
+			$(".toolbar").animate({ marginLeft: sidebar_width + "px" });
+		});
+	};
+
 }(jQuery));
