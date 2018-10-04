@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Handling files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+Rewriterule ^(.*) %{SCRIPT_NAME}
