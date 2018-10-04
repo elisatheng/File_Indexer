@@ -134,10 +134,18 @@ class FileIndexer {
 
 	/**
 	* Define $path depending $subpath value
-	* list folders of current $path
+	* list folders of current $path if $subpath is null
+	* list subfolders if the first part of $_requestUri matched with the current $file if $_requestUri exists
+	*
+	* @param {string} $subpath null
+	*	for the subfolders of $_requestUri
 	*/
-	public function listTree() {
-		$path = $this->_path["root"];
+	public function listTree($subpath=null) {
+		$path = ($subpath == null)
+			? (isset($_POST["path"]) && $_POST["path"] != null) 
+				? $_POST["path"] 
+				: $this->_path["root"]
+			: $subpath;
 
 		foreach (scandir($path) as $file) {
 			if (substr($file, 0, 1) == ".") 
@@ -146,11 +154,48 @@ class FileIndexer {
 			$file = $path . ($path == "/" ? "" : "/") . $file;
 
 			if (file_exists($file)) {
-				if (is_dir($file)) {
-					?><li>
-						<?php echo $this->getUrlEnd($file); ?>
-					</li><?php 
-				}
+				if (is_dir($file)) { ?>
+					<li>
+						<i class="fa fa-folder"></i>
+						<span data-path="<?php echo str_replace("//", "/", $file) . "/"; ?>">
+							<?php echo $this->getUrlEnd($file); ?>
+
+							<a href="<?php echo $this->_path["project"] . "/" . str_replace("C:/", "", str_replace("//", "/", $file)); ?>">
+								<i class="fa fa-arrow-left"></i>
+							</a>
+						</span>
+						<ul>
+							<?php
+							if ($this->_requestUri !== "/") {
+								$subpath = "C:" . $this->_requestUri;
+
+								if (strpos($subpath, $file) !== false)
+									$this->listTree($file);
+							}
+							else if (!isset($_POST["path"])) {
+								if ($subpath == null) {
+									if (strpos($this->_requestUri, $file) !== false)
+										$this->listTree($file);
+								}
+								else if (file_exists($this->_requestUri)) {
+									$subpath_array = explode("/", $subpath);
+									$requestUri_array = explode("/", $this->_requestUri);
+
+									foreach ($subpath_array as $subpath_key => $subpath_value) {
+										if ($subpath_array[$subpath_key] == $requestUri_array[$subpath_key]) 
+											unset($requestUri_array[$subpath_key]);
+									}
+
+									$requestUri_array = array_values($requestUri_array);
+
+									if (isset($requestUri_array[0]) && $file == $subpath . "/" . $requestUri_array[0])
+										$this->listTree($file);
+								}
+							}
+							?>
+						</ul>
+					</li>
+				<?php }
 			}
 		}
 	}

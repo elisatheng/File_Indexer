@@ -69,5 +69,12 @@
 
 		</div>
 	</div>
+
+	<!-- AJAX -->
+	<?php if (isset($_POST["action"]) && $_POST["action"] == "list") { ?>
+		<ul id="ajax" data-path="<?php echo $_POST["path"]; ?>">
+			<?php $FileIndexer->listTree($_POST["path"]); ?>
+		</ul>
+	<?php } ?>
 </body>
 </html>
