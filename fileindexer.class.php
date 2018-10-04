@@ -2,6 +2,7 @@
 
 class FileIndexer {
 
+	public $_extensions;
 	public $_path;
 	public $_requestUri;
 	
@@ -9,12 +10,34 @@ class FileIndexer {
 	* Constructor
 	*/
 	public function __construct() {
+		$this->_extensions = [
+			"audio" => ["m4a", "mid", "mp3", "mpa", "ogg", "wav", "wma"],
+			"data" => ["pdf"],
+			"image" => ["gif", "jpg", "jpeg", "png", "tif", "tiff"],
+			"video" => ["avi", "flv", "m4v", "mov", "mp4", "mpg"],
+			"web" => ["asp", "aspx", "cshtml", "css", "go", "htaccess", "htm", "html", "js", "json", "page", "php", "sass", "scss", "sh", "sql", "txt", "xhtm", "xhtml", "xml"]
+		];
+		
 		$this->_path = [
 			"root" => "C:",
 			"project" => dirname($_SERVER["SCRIPT_NAME"])
 		];
 
 		$this->_requestUri = $this->getRequestUri();
+	}
+
+	/**
+	* Get extension of file
+	*
+	* @param {string} $path
+	* @return extension of $path, else false
+	*/
+	public function getExtension($path) {
+		if (is_file($path)) {
+			$pathInfo = pathinfo($path);
+			return (isset($pathInfo["extension"])) ? $pathInfo["extension"] : false;
+		}
+		return false;
 	}
 
 	/**
