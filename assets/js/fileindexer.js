@@ -1,6 +1,55 @@
 (function($) {
 
 	/**
+	* Set colors in toolbar section
+	* Store color selected in localstorage
+	* Set border to color default/selected
+	* Handle color click
+	*
+	* @return true at click on a theme's color
+	*/
+	$.handleTheme = function() {
+		var toolbarSectionThemeColors_div = ".toolbar .toolbar-section .theme .colors div";
+		var lstorage_colorlight = "fileindexer_theme_color-light";
+		var lstorage_colordark = "fileindexer_theme_color-dark";
+
+		// set colors in toolbar theme
+		$.each($(toolbarSectionThemeColors_div), function(c, color) {
+			$(color).css("background-color", $(color).attr("data-color-light"));
+		});
+
+		// store color selected in localstorage
+		if (localStorage.getItem(lstorage_colorlight) === null || localStorage.getItem("fileindexer_theme_color-dark") === null) {
+			localStorage.setItem(lstorage_colorlight, "#00cccc");
+			localStorage.setItem(lstorage_colordark, "#009999");
+
+			$.setTheme("#00cccc", "#009999");
+		}
+		else {
+			$.setTheme(localStorage.getItem(lstorage_colorlight), localStorage.getItem(lstorage_colordark));
+		}
+
+		// set border to color default/selected
+		$(toolbarSectionThemeColors_div + "[data-color-light='" + localStorage.getItem(lstorage_colorlight) + "']").css("border", "1px solid #f2f2f2");
+
+		// handle color click
+		$(toolbarSectionThemeColors_div).on("click", function() {
+			var colorSelected_light = $(this).attr("data-color-light");
+			var colorSelected_dark = $(this).attr("data-color-dark");
+
+			localStorage.setItem(lstorage_colorlight, colorSelected_light);
+			localStorage.setItem(lstorage_colordark, colorSelected_dark);
+
+			$.setTheme(colorSelected_light, colorSelected_dark);
+
+			$(toolbarSectionThemeColors_div).css("border", "1px solid #000");
+			$(toolbarSectionThemeColors_div + "[data-color-light='" + colorSelected_light + "']").css("border", "1px solid #f2f2f2");
+
+			return true;
+		});
+	};
+
+	/**
 	* List subfolders of current folder clicked
 	* @if target has no subfolders yet
 	* 	Do request to Ajax to cal listSubfolders method from php class file
@@ -83,6 +132,17 @@
 			$(this).css("overflow-y", "scroll");
 		else
 			$(this).css("overflow-y", "hidden");
+	};
+
+	/**
+	* Set color of the theme selected on some parts of html
+	*
+	* @param {string} colorLight
+	* @param {string} colorDark
+	*/
+	$.setTheme = function(colorLight, colorDark) {
+		$(".body .body-header").css("background-color", colorLight);
+		$(".body .body-section .fa, .sidebar .sidebar-tree li .fa").css("color", colorDark);
 	};
 
 	/**

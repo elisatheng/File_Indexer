@@ -26,4 +26,10 @@ $(function() {
 	$(".sidebar .sidebar-tree > li").children().children().setFolderOpenIcon();
 	$(".sidebar .sidebar-tree span").listSubfoldersOnClick();
 
+
+	/**
+	* TOOLBAR THEME
+	*/
+	$.handleTheme();
+
 });
