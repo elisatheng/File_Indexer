@@ -1,0 +1,95 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+}
+.sidebar, .body {
+	height: 100vh;
+}
+.error404 {
+	display: block;
+	margin: 0 auto;
+}
+
+
+/*SIDEBAR*/
+.sidebar {
+	background-color: #262626;
+	color: #808080;
+}
+.sidebar .sidebar-header {
+	padding: 50px 30px;
+}
+.sidebar .sidebar-header .title {
+	font-family: 'Rammetto One', cursive;
+	font-size: 16px;
+}
+.sidebar .sidebar-header .fa-bars {
+	border: 1px solid #808080;
+	border-radius: 4px;
+	color: #808080;
+	cursor: pointer; 
+	padding: 5px 8px;
+}
+
+/*Sidebar*/
+.sidebar .sidebar-tree {
+	margin: 0;
+	width: 95%;
+}
+.sidebar .sidebar-tree li {
+	cursor: pointer;
+	list-style-type: none;
+	margin-bottom: 5px;
+	margin-left: -20px;
+}
+.sidebar .sidebar-tree li span {
+	color: #d9d9d9;
+}
+.sidebar .sidebar-tree li span .fa {
+	display: none;
+}
+.sidebar .sidebar-tree li span:hover .fa {
+	display: inline-block;
+}
+
+
+/*BODY*/
+.body {
+	padding: 25px 40px;
+}
+.body a:hover {
+	text-decoration: underline;
+}
+.body .body-header {
+	border-radius: 4px;
+	font-family: 'Rammetto One', cursive;
+	margin-bottom: 25px;
+	padding: 12px 0;
+}
+.body .body-header, .body .body-header a, .body .body-header i {
+	color: #262626;
+	font-size: 12px;
+}
+.body .body-header .breadcrumb {
+	background-color: transparent;
+	margin-bottom: 0;
+}
+.body .body-header .breadcrumb .btn {
+	padding: 8px 12px;
+}
+.body .body-header .breadcrumb .btn:not(:last-child) {
+	border-right: 1px solid #4d4d4d;
+}
+.body .body-header .back {
+	padding: 5px 15px;
+	transform: translateY(50%);
+}
+.body .body-section a  {
+	color: #000;
+}
+.body .body-section .tablesorter .header {
+	color: #a6a6a6;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: normal;
+}
