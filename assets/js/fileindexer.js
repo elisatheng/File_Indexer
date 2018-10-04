@@ -63,6 +63,8 @@
 	*/
 	$.fn.listSubfoldersOnClick = function() {
 		var $target = $(this);
+		var lstorage_colorlight = "fileindexer_theme_color-light";
+		var lstorage_colordark = "fileindexer_theme_color-dark";
 
 		$target.on("click", function callAjax() {
 			var sidebarTree_child = $(this)[0].nextElementSibling;
@@ -82,6 +84,7 @@
 								$(sidebarTree_child).append($(object)[0].innerHTML);
 
 								$(sidebarTree_child).parent().setFolderOpenIcon();
+								$.setTheme(localStorage.getItem(lstorage_colorlight), localStorage.getItem(lstorage_colordark));
 								
 								$(".sidebar .sidebar-tree span").off();
 								$(".sidebar .sidebar-tree span").on("click", callAjax);
@@ -94,6 +97,9 @@
 				$(sidebarTree_child).parent().children("i").attr("class", "fa fa-folder");
 				$($(sidebarTree_child)[0].children).remove();
 			}
+
+			// reset scrollbar
+			$(".sidebar .sidebar-tree").setScrollbar();
 		});
 	};
 
