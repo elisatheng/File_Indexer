@@ -2,28 +2,24 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	overflow: hidden;
 }
-.sidebar, .body {
+.sidebar, .toolbar, .body {
 	height: 100vh;
 }
-.error404 {
-	display: block;
-	margin: 0 auto;
-}
 
 
-/*SIDEBAR*/
-.sidebar {
+/*SIDEBAR - TOOLBAR*/
+.sidebar, .toolbar {
 	background-color: #262626;
 	color: #808080;
 }
-.sidebar .sidebar-header {
+.sidebar .sidebar-header, .toolbar .toolbar-header {
 	padding: 50px 30px;
 }
-.sidebar .sidebar-header .title {
+.sidebar .sidebar-header .title, .toolbar .toolbar-header .title {
 	font-family: 'Rammetto One', cursive;
 	font-size: 16px;
 }
-.sidebar .sidebar-header .fa-bars {
+.sidebar .sidebar-header .fa-bars, .toolbar .toolbar-header .fa-times {
 	border: 1px solid #808080;
 	border-radius: 4px;
 	color: #808080;
@@ -52,6 +48,36 @@ body {
 	display: inline-block;
 }
 
+/*Toolbar*/
+.toolbar {
+	position: absolute;
+}
+.toolbar .toolbar-section {
+	padding: 0 30px;
+}
+.toolbar .toolbar-section .search, .toolbar .toolbar-section .theme {
+	padding: 0;
+}
+.toolbar .toolbar-section .search input {
+	background: rgba(255, 255, 255, 1) url("https://image.flaticon.com/icons/svg/126/126474.svg") no-repeat scroll right center / 30px 18px;
+	cursor: pointer;
+}
+.toolbar .toolbar-section .theme {
+	margin-top: 15px;
+}
+.toolbar .toolbar-section .theme .title {
+	color: #d9d9d9;
+	font-size: 16px;
+	font-weight: bold;
+}
+.toolbar .toolbar-section .theme .colors div {
+	border: 1px solid #000;
+	border-radius: 4px;
+	cursor: pointer;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+}
 
 
 /*BODY*/
