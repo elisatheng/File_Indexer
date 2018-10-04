@@ -20,6 +20,10 @@
 </head>
 <body>
 	<div>
+		<h2>Render breadcrumb</h2>
+		<?php $FileIndexer->renderBreadcrumb(); ?>
+	</div>
+	<div>
 		<h2>List content</h2>
 		<?php $FileIndexer->listContent(); ?>
 	</div>
