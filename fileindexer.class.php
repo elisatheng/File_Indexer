@@ -255,6 +255,24 @@ class FileIndexer {
 		}
 	}
 
+	/**
+	* Display $_requestUri without the last part
+	*/
+	public function renderPreviousPath() {
+		$requestUri = "C:" . substr($this->_requestUri, 0, strlen($this->_requestUri) - 1);
+
+		if ($lastSlash_pos = strrpos($requestUri, "/")) {
+			if ($lastSlash_pos !== false) { 
+				$path = str_replace("C:", "", substr($requestUri, 0, $lastSlash_pos));
+
+				?><a href="<?php echo $this->_path["project"] . $path . "/"; ?>">
+					<i class="fa fa-arrow-left"></i> Back
+				</a><?php 
+			}
+		}
+
+	}
+
 }
 
 $FileIndexer = new FileIndexer();

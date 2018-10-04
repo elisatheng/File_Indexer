@@ -94,13 +94,15 @@
 					<div class="breadcrumb btn-group">
 						<?php $FileIndexer->renderBreadcrumb(); ?>
 					</div>
+					<div class="pull-right back">
+						<?php $FileIndexer->renderPreviousPath(); ?>
+					</div>
 				</header>
 
 				<!-- Section -->
 				<section class="row table-responsive body-section">
 					<?php $FileIndexer->listContent(); ?>
 				</section>
-
 			</section>
 
 		</div>
