@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="<?php echo $FileIndexer->_path["project"]; ?>/assets/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="<?php echo $FileIndexer->_path["project"]; ?>/assets/css/styles.css"/>
 	<script src="<?php echo $FileIndexer->_path["project"]; ?>/assets/js/jquery-3.3.1.min.js"></script>
+	<script src="<?php echo $FileIndexer->_path["project"]; ?>/assets/js/jquery.tablesorter.min.js"></script>
 	<script src="<?php echo $FileIndexer->_path["project"]; ?>/assets/js/fileindexer.js"></script>
 	<script src="<?php echo $FileIndexer->_path["project"]; ?>/assets/js/script.js"></script>
 
@@ -31,7 +32,6 @@
 				<!-- Header -->
 				<header class="row sidebar-header">
 					<span class="title">File_Indexer</span>
-					<i class="pull-right fa fa-bars"></i>
 				</header>
 
 				<!-- Tree -->
