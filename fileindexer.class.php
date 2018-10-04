@@ -97,6 +97,7 @@ class FileIndexer {
 							if (file_exists($file)) { ?>
 								<tr>
 									<td>
+										<?php $this->renderIcon($file); ?>
 										<a href="<?php echo $this->_path["project"] . $fileUrl; ?>">
 											<?php echo (is_file($file)) ? $this->getUrlEnd($file) : $this->getUrlEnd($file) . "/"; ?>
 										</a>
@@ -173,6 +174,39 @@ class FileIndexer {
 					<?php echo str_replace("%20", " ", $path); ?>
 				</a><?php
 			}
+		}
+	}
+
+	/**
+	* Display the icon matching with the filetype
+	*
+	* @param {string} $file
+	*/
+	public function renderIcon($file) {
+		if (is_file($file)) {
+			$fileExtension = $this->getExtension($file);
+
+			if (in_array($fileExtension, $this->_extensions["audio"])) {
+				?><i class="fa fa-file-audio-o"></i><?php
+			}
+			else if (in_array($fileExtension, $this->_extensions["data"])) {
+				?><i class="fa fa-file-pdf-o"></i><?php
+			}
+			else if (in_array($fileExtension, $this->_extensions["image"])) {
+				?><i class="fa fa-file-image-o"></i><?php
+			}
+			else if (in_array($fileExtension, $this->_extensions["video"])) {
+				?><i class="fa fa-file-movie-o"></i><?php
+			}
+			else if (in_array($fileExtension, $this->_extensions["web"])) {
+				?><i class="fa fa-file-code-o"></i><?php
+			}
+			else {
+				?><i class="fa fa-file-text-o"></i><?php
+			}
+		}
+		else {
+			?><i class="fa fa-folder"></i><?php
 		}
 	}
 
