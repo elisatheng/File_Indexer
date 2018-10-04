@@ -1,6 +1,12 @@
 $(function() {
 
 	/**
+	* SCROLLBAR
+	*/
+	$(".sidebar .sidebar-tree").setScrollbar();
+	$(".body .body-section").setScrollbar();
+
+	/**
 	* SIDEBAR TREE
 	*/
 	$(".sidebar .sidebar-tree > li").children().children().setFolderOpenIcon();

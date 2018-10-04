@@ -61,4 +61,28 @@
 		});
 	};
 
+	/**
+	* Set target height
+	* Set scrollbar if target child height is bigger than the target height
+	*
+	* @selector element to set scrollbar
+	*/
+	$.fn.setScrollbar = function() {
+		// set height
+		var targetHeader_height = $($(this)[0].previousElementSibling)[0].offsetHeight,
+			marginBottom = ($(this).is(".body-section")) ? 70 : 20;
+
+		$(this).css("height", "calc(100vh - " + (targetHeader_height + marginBottom) + "px)");
+
+		// set scroll
+		var target_height = $(this)[0].offsetHeight,
+			target_first_height = $($(this).children()[0])[0].offsetHeight,
+			target_first_height = ($(this).is(".body-section")) ? target_first_height + 25 : target_first_height;
+
+		if (target_first_height > target_height)
+			$(this).css("overflow-y", "scroll");
+		else
+			$(this).css("overflow-y", "hidden");
+	};
+
 }(jQuery));
