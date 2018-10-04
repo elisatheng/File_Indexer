@@ -41,6 +41,9 @@ body {
 .sidebar .sidebar-tree li span {
 	color: #d9d9d9;
 }
+.sidebar .sidebar-tree li span:hover {
+	color: #fff;
+}
 .sidebar .sidebar-tree li span .fa {
 	display: none;
 }

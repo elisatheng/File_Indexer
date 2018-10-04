@@ -76,7 +76,7 @@
 							<div data-color-light="#00cccc" data-color-dark="#009999"></div>
 							<div data-color-light="#0086b3" data-color-dark="#007399"></div>
 							<div data-color-light="#7575a3" data-color-dark="#666699"></div>
-							<div data-color-light="#cc0099" data-color-dark="#630086"></div>
+							<div data-color-light="#cc0099" data-color-dark="#b30086"></div>
 							<div data-color-light="#e6004c" data-color-dark="#cc0044"></div>
 							<div data-color-light="#ff471a" data-color-dark="#ff3300"></div>
 							<div data-color-light="#fff0b3" data-color-dark="#ffeb99"></div>
