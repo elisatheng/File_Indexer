@@ -108,6 +108,29 @@ class FileIndexer {
 		}
 	}
 
+	/**
+	* Define $path depending $subpath value
+	* list folders of current $path
+	*/
+	public function listTree() {
+		$path = $this->_path["root"];
+
+		foreach (scandir($path) as $file) {
+			if (substr($file, 0, 1) == ".") 
+				continue;
+
+			$file = $path . ($path == "/" ? "" : "/") . $file;
+
+			if (file_exists($file)) {
+				if (is_dir($file)) {
+					?><li>
+						<?php echo $this->getUrlEnd($file); ?>
+					</li><?php 
+				}
+			}
+		}
+	}
+
 }
 
 $FileIndexer = new FileIndexer();

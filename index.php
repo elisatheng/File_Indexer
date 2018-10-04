@@ -23,5 +23,9 @@
 		<h2>List content</h2>
 		<?php $FileIndexer->listContent(); ?>
 	</div>
+	<div>
+		<h2>List tree</h2>
+		<ul><?php $FileIndexer->listTree(); ?></ul>
+	</div>
 </body>
 </html>
