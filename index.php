@@ -40,6 +40,10 @@
 						<i class="fa fa-folder-open"></i>
 						<span data-path="<?php echo $FileIndexer->_path["root"]; ?>">
 							<?php echo $FileIndexer->_path["root"]; ?>
+
+							<a href="<?php echo $FileIndexer->_path["project"] . "/" . $FileIndexer->_path["root"]; ?>">
+								<i class="fa fa-arrow-left"></i>
+							</a>
 						</span>
 						<ul>
 							<?php $FileIndexer->listTree(); ?>
