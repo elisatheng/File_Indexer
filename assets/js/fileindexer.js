@@ -76,7 +76,7 @@
 					url : ajaxurl,
 					data : { "action" : 'list', "path" : $(this).attr("data-path") },
 					success : function(html) {
-						var html = $.parseHTML(html);
+						html = $.parseHTML(html);
 
 						$.each(html, function(key, object) {
 							// get ajax block having the new subfolders
@@ -131,8 +131,7 @@
 
 		// set scroll
 		var target_height = $(this)[0].offsetHeight,
-			target_first_height = $($(this).children()[0])[0].offsetHeight,
-			target_first_height = ($(this).is(".body-section")) ? target_first_height + 25 : target_first_height;
+			target_first_height = $($(this).children()[0])[0].offsetHeight + (($(this).is(".body-section")) ? 25 : 0);
 
 		if (target_first_height > target_height)
 			$(this).css("overflow-y", "scroll");

@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>File_Indexer</title>
@@ -87,7 +87,7 @@
 
 
 			<!-- BODY -->
-			<section class="col-md-9 col-md-pull-3 body">
+			<div class="col-md-9 col-md-pull-3 body">
 
 				<!-- Header -->
 				<header class="row body-header">
@@ -103,7 +103,7 @@
 				<section class="row table-responsive body-section">
 					<?php $FileIndexer->listContent(); ?>
 				</section>
-			</section>
+			</div>
 
 		</div>
 	</div>

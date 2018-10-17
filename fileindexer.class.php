@@ -27,6 +27,16 @@ class FileIndexer {
 	}
 
 	/**
+	* Convert url spaces to %20
+	*
+	* @param {string} $path
+	* @return path without spaces
+	*/
+	public function convertUrlSpaces($path) {
+		return str_replace(" ", "%20", $path);
+	}
+
+	/**
 	* Get extension of file
 	*
 	* @param {string} $path
@@ -98,7 +108,7 @@ class FileIndexer {
 								<tr>
 									<td>
 										<?php $this->renderIcon($file); ?>
-										<a href="<?php echo $this->_path["project"] . $fileUrl; ?>">
+										<a href="<?php echo $this->convertUrlSpaces($this->_path["project"] . $fileUrl); ?>">
 											<?php echo (is_file($file)) ? $this->getUrlEnd($file) : $this->getUrlEnd($file) . "/"; ?>
 										</a>
 									</td>
@@ -160,7 +170,7 @@ class FileIndexer {
 						<span data-path="<?php echo str_replace("//", "/", $file) . "/"; ?>">
 							<?php echo $this->getUrlEnd($file); ?>
 
-							<a href="<?php echo $this->_path["project"] . "/" . str_replace("C:/", "", str_replace("//", "/", $file)); ?>">
+							<a href="<?php echo $this->convertUrlSpaces($this->_path["project"] . "/" . str_replace("C:/", "", str_replace("//", "/", $file))); ?>">
 								<i class="fa fa-arrow-left"></i>
 							</a>
 						</span>
@@ -208,14 +218,14 @@ class FileIndexer {
 		$requestUri_array = explode("/", "C:" . $this->_requestUri);
 
 		if ($this->_requestUri == "/") {
-			?><a href="<?php echo $breadcrumb; ?>" class="btn">C:</a><?php
+			?><a href="<?php echo $this->convertUrlSpaces($breadcrumb); ?>" class="btn">C:</a><?php
 		}
 		else {
 			foreach ($requestUri_array as $index => $path) {
 				$breadcrumb .= ($breadcrumb == "") ? $path : "/" . $path;
 				$breadcrumb = str_replace("/C:", "", $breadcrumb);
 
-				?><a href="<?php echo $breadcrumb; ?>" class="btn">
+				?><a href="<?php echo $this->convertUrlSpaces($breadcrumb); ?>" class="btn">
 					<?php echo str_replace("%20", " ", $path); ?>
 				</a><?php
 			}
@@ -265,7 +275,7 @@ class FileIndexer {
 			if ($lastSlash_pos !== false) { 
 				$path = str_replace("C:", "", substr($requestUri, 0, $lastSlash_pos));
 
-				?><a href="<?php echo $this->_path["project"] . $path . "/"; ?>">
+				?><a href="<?php echo $this->convertUrlSpaces($this->_path["project"] . $path . "/"); ?>">
 					<i class="fa fa-arrow-left"></i> Back
 				</a><?php 
 			}
