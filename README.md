@@ -12,3 +12,7 @@ A modern file indexer for HTTP web servers with focus on your files
 ## Upcoming features
 
 * Can search a specific file
+
+
+## To fix
+* Media : cannot load local resources (mac)

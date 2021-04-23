@@ -1,35 +1,9 @@
 $(function() {
 
-	/**
-	* TABLESORTER
-	* @plugin
-	*/
-	$(".body .body-section .tablesorter").tablesorter();
+    $.handleScrollbars()
+	$.handleTheme()
+	$.toggleBars()
+	$(".fi-sidebar__tree > li").handleFolderIcons()
+	$(".fi-body__section-table").tablesorter()
 
-
-	/**
-	* SCROLLBAR
-	*/
-	$(".sidebar .sidebar-tree").setScrollbar();
-	$(".body .body-section").setScrollbar();
-
-
-	/**
-	* TOGGLE BARS
-	*/
-	$.toggleBars();
-
-
-	/**
-	* SIDEBAR TREE
-	*/
-	$(".sidebar .sidebar-tree > li").children().children().setFolderOpenIcon();
-	$(".sidebar .sidebar-tree span").listSubfoldersOnClick();
-
-
-	/**
-	* TOOLBAR THEME
-	*/
-	$.handleTheme();
-
-});
+})
